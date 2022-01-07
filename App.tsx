@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -17,12 +17,18 @@ const RootStack = createStackNavigator<RootStackListType>();
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar hidden={true} />
       <RootStack.Navigator initialRouteName={Screens.LANDING_PAGE}>
         <RootStack.Screen
           name={Screens.LANDING_PAGE}
           component={LandingScreen}
+          options={{headerShown: false}}
         />
-        <RootStack.Screen name={Screens.QUIZ_SCREEN} component={QuizScreen} />
+        <RootStack.Screen
+          name={Screens.QUIZ_SCREEN}
+          component={QuizScreen}
+          options={{headerShown: false}}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
